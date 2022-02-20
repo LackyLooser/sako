@@ -1,0 +1,244 @@
+$main-color: rgb(133, 197, 85)
+$hover-color: rgb(126, 182, 83)
+.header
+    background: url('../../img/bg/header.jpg') center (center / cover) no-repeat
+    height: 200px
+    position: relative
+    &_search
+        display: flex
+        justify-content: center
+        align-items: center
+        width: 80%
+        height: 100%
+        padding: 0 15px
+        &_container
+            position: relative
+            width: 100%
+        &_input
+            width: 100%
+            height: 46px
+            font-size: 15px
+            border: 2px solid rgba(129,129,129,.2)
+            padding-left: 15px
+            outline: none
+            
+            &_btn
+                position: absolute
+                display: flex
+                justify-content: center
+                align-items: center
+                width: 46px
+                height: 46px
+                background-color: $main-color
+                border: none
+                right: 0
+                top: 0
+                font-weight: 300
+                &:focus
+                    outline: none
+                &:hover
+                    background-color: $hover-color
+                i
+                    color: #fff
+                    font-size: 20px
+    &_phone
+        width: 100%
+        height: 150px
+        display: flex
+        justify-content: end
+        align-items: center
+        font-size: 22px
+        font-weight: 600
+        color: #fff
+        line-height: 1.3
+        padding: 0 15px
+        &_content
+            text-align: right
+            span
+                display: inline-block
+                a
+                    margin-left: 20px
+                    text-decoration: none
+                    color: #fff
+    &_logo
+        width: 100%
+        height: 150px
+        display: flex
+        padding: 0 15px
+        padding: 0 15px
+        img
+            width: 100%
+.nav
+    position: absolute
+    bottom: 0
+    height: 50px
+    width: 100%
+    background-color: rgba(62,100 , 21, .5)
+    display: flex
+    justify-content: center
+    align-items: center
+    &_menu
+        width: 50%
+        display: flex
+        justify-content: space-between
+        padding: 0 20px
+        margin: 0 auto
+        list-style-type: none
+        &_item
+            display: flex
+            height: 50px
+            align-items: center
+            padding: 0 10px
+        &_link
+            color: #ffffff
+            font-size: 20px
+            font-weight: 500
+            &:hover
+                text-decoration: none
+                color: #ffffff
+@media ( max-width: 1135px )
+    .nav
+        &_menu
+            width: 60%
+@media ( max-width: 1001px )
+    .header
+        height: 170px
+        &_phone
+            height: 120px
+            font-size: 17px
+            line-height: 1.2
+            &_content
+                span
+                    a
+                        margin-left: 13px
+        &_logo
+            height: 120px
+            padding: 0 10px
+    .nav
+        &_menu
+            &_link
+                font-size: 17px
+@media ( max-width: 844px )
+    .header
+        &_search
+            width: 100%
+            &_input
+                height: 41px
+                font-size: 15px
+                &_btn
+                    width: 41px
+                    height: 41px
+    .nav
+        height: 40px
+        &_menu
+            width: 70%
+@media ( max-width: 797px )
+    .header
+        height: 150px
+        &_phone
+            height: 100px
+            font-size: 14px
+            line-height: 1.2
+        &_logo
+            height: 100px
+        &_search
+            &_input
+                height: 35px
+                font-size: 15px
+                padding-left: 5px
+                &_btn
+                    width: 35px
+                    height: 35px
+    .nav
+        height: 35px
+        &_menu
+            width: 80%
+@media ( max-width: 676px )
+    .header
+        height: 130px
+        &_phone
+            height: 100px
+            font-size: 11px
+            line-height: 1.2
+        &_logo
+            height: 100px
+        &_search
+            &_input
+                height: 30px
+                padding-left: 5px
+                &_btn
+                    width: 30px
+                    height: 30px
+    .nav
+        height: 35px
+        &_menu
+            width: 90%
+    
+@media ( max-width: 576px )
+    .header
+        height: 80px
+        &_search
+            height: 50px
+            &_input
+                height: 30px
+                font-size: 8px
+                padding-left: 2px
+                &_btn
+                    width: 30px
+                    height: 30px
+                    font-weight: 300
+                    i
+                        font-size: 15px
+        &_phone
+            height: 50px
+            font-size: 9px
+            font-weight: 400
+            line-height: 1
+            padding: 0 5px
+        &_logo
+            height: 50px
+            padding: 0 15px
+    .nav
+        height: 30px
+        &_menu
+            width: 100%
+            padding: 0 10px
+            &_item
+                height: 30px
+                padding: 0 5px
+            &_link
+                font-size: 13px
+                font-weight: 400
+@media ( max-width: 417px )
+    .header
+        height: 80px
+        &_search
+            height: 60px
+            padding-right: 0px
+            &_input
+                height: 30px
+                font-size: 7px
+                padding-left: 0px
+                &_btn
+                    width: 23px
+                    height: 30px
+                    font-weight: 300
+                    i
+                        font-size: 15px
+        &_phone
+            height: 60px
+            font-size: 7px
+            font-weight: 300
+            line-height: 1
+        &_logo
+            height: 60px
+    .nav
+        height: 20px
+        &_menu
+            padding: 0 5px
+            &_item
+                height: 20px
+                padding: 0 5px
+            &_link
+                font-size: 10px
+                font-weight: 300

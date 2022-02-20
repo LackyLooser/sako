@@ -1,0 +1,49 @@
+.products_container 
+	display: grid
+	grid-gap: 15px
+	grid-template-columns: repeat(auto-fit, minmax(250px, 1fr))
+	width: 100%
+	max-width: 1200px
+	margin: 0 auto
+	margin-bottom: 40px
+
+.products_element 
+	display: flex
+	flex-direction: column
+	justify-content: flex-end
+	padding: 5px 5px
+	border-radius: 3px
+	background-color: #ffffff
+	border: 1px solid black
+	&_name 
+		display: flex
+		justify-content: center
+		align-items: center
+		font-weight: 500
+		font-family: "Montserrat",sans-serif
+		height: 80px
+		text-align: center
+		&:hover 
+			color: rgba(51,51,51,.7)
+		
+	
+	&_manufacturers 
+		display: flex
+		justify-content: center
+		align-items: center
+		font-weight: 500
+		font-family: "Montserrat",sans-serif
+		color: rgba(51,51,51,.7)
+	
+	&_img 
+		width: 100%
+		height: 270px
+		margin-top: 15px
+		object-fit: contain
+.navlink 
+    color:#000
+
+.navlink:hover 
+	color: #000000
+	cursor: pointer
+
