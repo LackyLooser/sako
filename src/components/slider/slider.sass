@@ -7,6 +7,7 @@
         background: url('../../img/bg/hit.jpg') center (center / cover) no-repeat
     .container
         max-width: 1200px
+        
     &_title
         display: flex
         justify-content: center
@@ -21,6 +22,8 @@
             height: 100%
             width: 100%
             padding: 0 40px
+            
+            
             .item
                 width: auto
                 height: auto
@@ -84,6 +87,16 @@
                         height: 100%
                 li.slick-active
                     background-color: #fff
+    .slick-slide
+        max-width: 25%
+    .slick-list
+        overflow: hidden
+    .slick-track
+        overflow: hidden
+        display: flex
+        justify-content: center
+    .slick-slider
+        position: relative
 @media ( max-width:  1050px)
     .bestseller
         height: 490px
@@ -104,3 +117,9 @@
                 .slick-prev, .slick-next
                     i
                         font-size: 40px
+@media ( max-width:  921px)
+    .slick-slide
+        max-width: 33%
+@media ( max-width:  701px)
+    .slick-slide
+        max-width: 50%

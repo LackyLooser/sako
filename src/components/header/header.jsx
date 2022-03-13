@@ -3,7 +3,7 @@ import {NavLink} from "react-router-dom";
 import logo from '../../img/logo/logo.png';
 import styles from './header.module.sass'
 const Header = () => {
-    
+    const [state, setState] = useState('')
     return (
         <section className={styles.header}>
             <header>
@@ -12,8 +12,17 @@ const Header = () => {
                         <div className="col-lg-4 col-md-4 col-sm-4 col-4 pl-0 pr-0">
                             <div className={styles.header_search}>
                                 <div className={styles.header_search_container}>
-                                    <input type="text" className={styles.header_search_input} placeholder="Поиск товаров"/>
-                                    <button className={styles.header_search_input_btn}><i className="fas fa-search"></i></button>
+                                    <input onChange={e => setState(e.target.value)} 
+                                    type="text" 
+                                    className={styles.header_search_input} 
+                                    placeholder="Поиск товаров" 
+                                    value={state}/>
+                                    <NavLink to="/catalog" state={state} >
+                                        <button onClick={()=>setState('')} className={styles.header_search_input_btn}>
+                                            <i className="fas fa-search"></i>
+                                        </button>
+                                    </NavLink>
+                                    
                                 </div>
                                 
                             </div>

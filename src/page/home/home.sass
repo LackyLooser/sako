@@ -86,18 +86,18 @@ $hover-color: rgb(126, 182, 83)
                 p
                     font-size: 14px
 .partners
+    margin-bottom: 20px
     &_hidden
         display: block
         height: auto
         width: 100%
+        height: 100%
         margin: 0 auto
         border: 2px solid #d1cece
         transition: 1s all
         &:hover
             border: 10px solid #d1cece
     &_company
-        height: 100%
-        width: 100%
         display: flex
         justify-content: center
         align-items: center
@@ -105,9 +105,28 @@ $hover-color: rgb(126, 182, 83)
         font-size: 25px
         font-weight: 600
         font-style: italic     
-    &_container
-        margin: 20px 30px
-        background-color: #FFFFFF
+    
+    &_square 
+        position: relative
+        display: block
+        margin: 30px 15px
+    
+
+    &_square:after 
+        content: ''
+        display: block
+        padding-top: 100%
+    
+
+    &_content 
+        position: absolute
+        top: 0
+        left: 0
+        width: 100%
+        height: 100%
+        background-color: #fff
+        
+    
 .title
     display: flex
     justify-content: center
@@ -179,6 +198,7 @@ $hover-color: rgb(126, 182, 83)
     &_item
         border: 1px solid rgba(129,129,129,1)
         margin: 10px 0
+        cursor: pointer
         &_link
             display: flex
             justify-content: center
@@ -192,23 +212,22 @@ $hover-color: rgb(126, 182, 83)
         &_company
             margin-top: 10px
             text-align: center
-            a
-                color: green
-                font-size: 25px
-                font-weight: 600
-                opacity: 0.8
-                &:hover
-                    opacity: 1
+            color: green
+            font-size: 25px
+            font-weight: 600
+            opacity: 0.8
+            
+            &:hover
+                opacity: 1
         &_production
             text-align: center
             padding: 5px
-            a
-                color: #000
-                font-size: 17px
-                font-weight: 400
-                opacity: 0.8
-                &:hover
-                    opacity: 1
+            color: #000
+            font-size: 17px
+            font-weight: 400
+            opacity: 0.8
+            &:hover
+                opacity: 1
     
 .wholesale
     

@@ -1,68 +1,85 @@
 import React, {useEffect, useState} from 'react'
-import {NavLink, useLocation} from "react-router-dom";
+import {NavLink, useLocation, useParams} from "react-router-dom";
 import styles from './catalog.module.sass'
 import ProductList from './productList/productList'
 import useFetch from '../../components/hooks/useFetch'
 import Preloader from '../../components/preloader/preloader';
 const Catalog = () => {
+    const searchParams = useLocation().state
+    let url = useParams()
+    let slug = url.slug
     const [state, setState] = useState('')
     const [menuCategory, setMenuCategory] = useState('')
+    const [availabilityOrBestseller,setAvailabilityOrBestseller] = useState()
     const [currentPage, setCurrentPage] = useState(1)
     const [fetching, setFetching] = useState(false)
     const [totalCount, setTotalCount] = useState(0)
-    const [{response, error, isLoading}, doFetch] = useFetch(menuCategory)
-    let url=useLocation()
-    // временный роутинг
-    const availability =`?_limit=9&_page=2`
-    const bestseller = `?_limit=9&_page=3`
-    // временный роутинг
-    useEffect(()=>{
-        switch (url.pathname) {
-            case '/catalog':
-                setMenuCategory(availability)
-                break;
-            case '/catalog/availability':
-                setMenuCategory(availability)
-                break;
-            case '/catalog/bestseller':
-                setMenuCategory(bestseller)
-                break;
-            default:
-                break;
-        }
-        doFetch()
-    },[])
+    const [{response, error, isLoading}, doFetch] = useFetch('category/')
+    const [{response: responseAvailability, isLoading: isLoadingAvailability}, doFetchAvailability] = useFetch('product/')
+    
     
     useEffect(()=>{
         doFetch()
-    },[menuCategory])
+            const availability = slug =='availability' ? true : ''
+            const bestseller = slug == 'bestseller' ? true : ''
+            const category_ids = slug == 'product' ? url.id : ''
+            const manufactor = slug == 'manufactures' ? url.id : ''
+        doFetchAvailability({
+            params:{
+                search:searchParams,
+                category_ids:category_ids,
+                new:"",
+                manufactor:manufactor,
+                availability: availability,
+                bestseller:bestseller,
+                page:1,
+                page_size:9
+        }})
+    },[])
     useEffect(()=>{
-        setState(response)
-    },[response])
+        if (searchParams){
+            doFetchAvailability({
+                params: {search : searchParams,
+                    page:1,
+                    page_size:9}
+            }) 
+        }else if(availabilityOrBestseller){
+            doFetchAvailability({
+                params: availabilityOrBestseller
+            })
+        }
+    },[availabilityOrBestseller,searchParams])
+    const menuClick = (menuCategory) =>{
+        doFetchAvailability({params:{category_ids: menuCategory,
+            page:1,
+            page_size:9}})
+    }
+    
     useEffect(()=>{
-       if(fetching) {
-            fetch(`https://jsonplaceholder.typicode.com/photos/?_limit=9&_page=${currentPage}`)
+        
+        if(responseAvailability){
+            setState(responseAvailability.results)
+            setTotalCount(responseAvailability.count)
+        }
+    },[responseAvailability])
+    
+    useEffect(()=>{
+       if(fetching && responseAvailability) {
+            fetch(responseAvailability.next)
                 .then(res => res.json())
                 .then(body => {
-                    setState([...state,...body])
-                    setCurrentPage(prevState=> prevState + 1)
+                    setState([...state,...body.results])
+                    setTotalCount(body.count)
                 })
                 .finally(()=>setFetching(false))
         }
     },[fetching])
-    useEffect(()=>{
-        document.addEventListener('scroll', scrollHandler)
-
-        return function(){
-            document.removeEventListener('scroll', scrollHandler)
-        }
-    },[])
-    const scrollHandler = (e) =>{
-        if(e.target.documentElement.scrollHeight - (e.target.documentElement.scrollTop+ window.innerHeight)< 100 
-        && state.length == totalCount){
-            setFetching(true)
-        }
-    }
+ const loadMore = ()=>{
+     setFetching(true)
+    console.log('click', totalCount)
+ }
+console.log(state)
+console.log(totalCount)
     return (
         <div className='container'>
             <div className={styles.catalog}>
@@ -70,28 +87,36 @@ const Catalog = () => {
                 <div className='col-md-3'>
                 <span className={styles.categories}>КАТЕГОРИИ ТОВАРОВ</span>
                 <ul>
-                    <li className={styles.li} onClick={() => setMenuCategory(availability)}><NavLink className={styles.navlink}  to='/catalog/availability'>Товар в наличии</NavLink></li>
-                    <li className={styles.li} onClick={() => setMenuCategory(bestseller)}><NavLink className={styles.navlink} to='/catalog/bestseller'>Хит продаж</NavLink></li>
-                    <li className={styles.li}>Удобрения</li>
-                    <li className={styles.li}>Средства защиты растений</li>
-                    <li className={styles.li}>Семена</li>
-                    <li className={styles.li}>Саженцы</li>
-                    <li className={styles.li}>Биопрепараты</li>
-                    <li className={styles.li}>Средства защиты человека</li>
-                    <li className={styles.li}>Грунты, дренаж, структурирующие добавки, декор</li>
-                    <li className={styles.li}>Кормовые добавки для домашнего скота и птицы</li>
-                    <li className={styles.li}>Садовые опрыскиватели</li>
-                    <li className={styles.li}>Торфяные таблетки</li>
-                    <li className={styles.li}>Средства для ухода за бассейном</li>
-                    <li className={styles.li}>Деревянные изделия для сада</li>
-                    <li className={styles.li}>Деревянные изделия для сада</li>
-                    <li className={styles.li}>Прочие товары</li>
+                        <li className={styles.li} >
+                            <NavLink onClick={()=> setAvailabilityOrBestseller({availability: true,page:1,
+                page_size:9})} className={styles.navlink}  to={`/catalog/availability`}>Товары в наличии</NavLink>
+                        </li>
+                        <li className={styles.li} >
+                            <NavLink onClick={()=> setAvailabilityOrBestseller({bestseller: true,page:1,
+                page_size:9})} className={styles.navlink}  to={`/catalog/bestseller`}>Хит продаж</NavLink>
+                        </li>
+                {isLoading && <Preloader/>}
+                {!isLoading && response && response.map(el =>{
+                    return (
+                        <li className={styles.li} key={el.id}>
+                            <NavLink onClick={()=>menuClick(el.id)} className={styles.navlink}  to={`/catalog/${el.id}`}>{el.name}</NavLink>
+                        </li>
+                        
+                    )
+                })}
                 </ul>
                 </div>
                 <div className='col-md-9'>
-                    {isLoading && <Preloader/>}
-                    {!isLoading && state && <ProductList state={state} url={url}/>}
+                    {isLoading || isLoadingAvailability && <Preloader/>}
+                    {state && state.length <1 && !isLoading && !isLoadingAvailability && <div style={{"fontSize": "40px"}}>Товар не найден</div>}
+                    {state && !isLoading && !isLoadingAvailability && <ProductList state={state} url={url}/>}
                     {fetching && <Preloader/>}
+                    {!fetching && state && state.length != totalCount && (
+                        <div className={styles.loadmore}>
+                            <button onClick={()=>loadMore()}>загрузить еще</button>
+                        </div>
+                    
+                    )}
                 </div>
             </div>
             

@@ -18,21 +18,6 @@ $(document).ready(function(){
       return false;
     });
   });
-  // $('.carousel__inner').slick({
-  //   slidesToShow: 4,
-  //   slidesToScroll: 4,
-  //   dots: true,
-  //   prevArrow: '<span type="button" class="slick-prev"><i class="fas fa-chevron-left"></i></span>',
-  //   nextArrow: '<span type="button" class="slick-next"><i class="fas fa-chevron-right"></i></span>'
-  // })
-  // $('.carousel_main').slick({
-  //   slidesToShow: 1,
-  //   slidesToScroll: 1,
-    
-  //   dots: true,
-  //   prevArrow: '<span type="button" class="slick-prev"><i class="fas fa-chevron-left"></i></span>',
-  //   nextArrow: '<span type="button" class="slick-next"><i class="fas fa-chevron-right"></i></span>'
-  // })
   $('#clickNew').on('click',function(e) {
     if (!$(this).hasClass("no-jump")) {
       $('html, body').stop().animate({
@@ -43,9 +28,3 @@ $(document).ready(function(){
     }
   });     
 });
-// =============================================
-// $(document).ready(function(){
-//   $('.carousel').carousel({
-//     interval: 2000
-//   })
-// });

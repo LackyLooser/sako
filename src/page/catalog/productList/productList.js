@@ -10,10 +10,10 @@ const ProductList = ({state,url}) => {
         <div>
             <ul className={styles.products_container}>
             {stateProduct && stateProduct.map((el) =>
-            <NavLink className={styles.navlink} to={url.pathname+ `/${el.id}`} key={el.id}>
+            <NavLink className={styles.navlink} to={`/catalog/product/${el.id}`} key={el.id}>
                 <li className={styles.products_element} >
-                    <img className={styles.products_element_img} src={el.url} />
-                    <span className={styles.products_element_name}>Название товара</span>
+                    <img className={styles.products_element_img} src={el.main_logo} />
+                    <span className={styles.products_element_name}>{el.name}</span>
                     <span className={styles.products_element_manufacturers}>Фаско</span>
                 </li>
             </NavLink>

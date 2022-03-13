@@ -1,17 +1,19 @@
-$var1: #ffffff
-$var2: #28a745
 
 .product_block 
 	margin-bottom: 40px
+	min-height: 300px
 
 .products_img 
 	width: 100%
 	height: 470px
 	margin-top: 15px
+	cursor: pointer
 	&_smile 
 		max-width: 100%
 		height: auto
 		margin-top: 15px
+		border: 1px solid black
+		cursor: pointer
 	
 
 .product_name 
@@ -28,15 +30,22 @@ $var2: #28a745
 
 .availability 
 	margin-bottom: 16px
-	span 
-		color: $var1
-		background-color: $var2
+	&_yes 
+		color: #ffffff
+		background-color: #28a745
 		font-weight: 600
 		border-radius: 3px
 		width: 15%
 		text-align: center
 		padding: 2px 8px
-	
+	&_no
+		color: #ffffff
+		background-color: red
+		font-weight: 600
+		border-radius: 3px
+		width: 15%
+		text-align: center
+		padding: 2px 8px
 
 p 
 	font-weight: 500

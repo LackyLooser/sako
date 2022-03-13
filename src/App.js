@@ -19,11 +19,14 @@ const App = () => {
                   <Route path='/about' element={<About/>}/>
                   <Route path='/contacts' element={<Contacts/>}/>
                   <Route path='/catalog' element={<Catalog/>}/>
-                  <Route path='/catalog/:id' element={<Product/>}/>
+                  <Route path='/catalog/:slug' element={<Catalog/>}/>
+                  <Route path='/catalog/product/:id' element={<Product/>}/>
+                  <Route path='/catalog/:slug/:id' element={<Catalog/>}/>
+                  {/* <Route path='/catalog/:id' element={<Product/>}/>
                   <Route path='/catalog/availability' element={<Catalog/>}/>
                   <Route path='/catalog/availability/:id' element={<Product/>}/>
                   <Route path='/catalog/bestseller' element={<Catalog/>}/>
-                  <Route path='/catalog/bestseller/:id' element={<Product/>}/>
+                  <Route path='/catalog/bestseller/:id' element={<Product/>}/> */}
                 </Routes>
             <Footer/>
             <p id="back-top">

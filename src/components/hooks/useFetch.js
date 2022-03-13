@@ -2,7 +2,7 @@ import {useState, useEffect} from 'react'
 import axios from 'axios'
 
 export default url => {
-  const baseUrl = 'https://jsonplaceholder.typicode.com/photos/'
+  const baseUrl = 'http://localhost:8000/api/v1/'
   const [isLoading, setIsLoading] = useState(false)
   const [response, setResponse] = useState(null)
   const [error, setError] = useState(null)

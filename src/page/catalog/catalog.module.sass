@@ -3,6 +3,7 @@ $var1: #000000
 .catalog 
 	padding-top: 50px
     padding-left: 30px
+	min-height: calc(100vh - 40px)
 .categories 
 	display: block
 	color: $var1
@@ -33,3 +34,24 @@ ul
 .navlink:hover 
 	color: $var1
 	cursor: pointer
+.loadmore
+	height: 150px
+	display: flex
+	justify-content: center
+	align-items: center
+	button
+		width: 153px
+		height: 32px
+		background-color: rgb(133, 197, 85)
+		border-radius: 5px
+		border: none
+		font-weight: 500
+		font-size: 12px
+		text-transform: uppercase
+		color: #FFFFFF
+		&:hover
+			background-color: rgb(126, 182, 83)
+		&:focus
+			outline: none
+
+		
