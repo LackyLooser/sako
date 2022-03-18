@@ -58,19 +58,19 @@ const Product = (props) => {
             {response && <div className={styles.product_block}>
                 <span className={styles.product_name}>{response.name}</span>
                 <div className='row'>
-                    <div className='col-md-5'>
+                    <div className='col-lg-5 col-md-6'>
                         <img className={styles.products_img} src={response.main_logo} onClick={()=>modalFlag(true)}/>
                         <div className='row'>
                             {response.product_logo.length > 0 && response.product_logo.map((el,index)=>{
                                 return (
-                                    <div className='col-6 col-sm-3 md-4'key={el.id}>
+                                    <div className='col-sm-3 col-4'key={el.id}>
                                         <img className={styles.products_img_smile} src={el.logo} onClick={()=>modalFlag(true,index)}/>
                                     </div>
                                 )
                             })}
                         </div>
                     </div>
-                    <div className='col-md-7'>
+                    <div className='col-lg-7 col-md-6'>
                         <div className={styles.product_description}>
                             <div className={styles.availability}>
                                 {response.availability 

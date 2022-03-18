@@ -1,7 +1,7 @@
 $main-color: rgb(133, 197, 85)
 $hover-color: rgb(126, 182, 83)
 .slider
-    height: 100vh
+    // height: calc(100vh - 200px)
     &_content           
     .carousel
         &-indicators
@@ -11,8 +11,10 @@ $hover-color: rgb(126, 182, 83)
                 height: 15px
                 margin: 0 5px
         &-item
+            height: calc(100vh - 200px)
             img
-                height: 100vh
+                width: 100%
+                height: auto
         &-control
             &-next, &-prev
                 opacity: 1
@@ -45,48 +47,9 @@ $hover-color: rgb(126, 182, 83)
                 height: 48px
                 margin: 30px auto 0
                 text-align: center
-@media ( max-width:  768px)
-    .slider        
-        .carousel
-            &-control
-                &-next, &-prev
-                    &-icon
-                        width: 30px
-                        height: 30px
-            &-caption
-                h5
-                    font-size: 32px
-                    margin-bottom: 5px
-                p
-                    font-size: 22px
-@media ( max-width:  576px)
-    .slider        
-        .carousel
-            &-control
-                &-next, &-prev
-                    &-icon
-                        width: 20px
-                        height: 20px
-            &-caption
-                h5
-                    font-size: 25px
-                p
-                    font-size: 17px
-                &-btn
-                    font-size: 15px
-                    font-weight: 600
-                    width: 170px
-                    height: 38px
-@media ( max-width:  576px)
-    .slider        
-        .carousel
-            &-caption
-                h5
-                    font-size: 20px
-                p
-                    font-size: 14px
 .partners
-    margin-bottom: 20px
+    background-color: rgb(146, 235, 78)
+    padding: 30px 0
     &_hidden
         display: block
         height: auto
@@ -149,15 +112,16 @@ $hover-color: rgb(126, 182, 83)
     &_text
         display: inline-block
         width: 100%
+        font-size: 23px
         &_last
-            text-align: center
+            text-align: right
             color: #000000
             font-family: "Montserrat", Sans-serif
-            font-size: 20px
+            font-size: 30px
             font-weight: 600
 .company
+    background-color: rgb(146, 235, 78)
     &_content
-        background-color: #fff
         padding: 50px
     &_container
         &_btn
@@ -190,10 +154,10 @@ $hover-color: rgb(126, 182, 83)
                     
 
 .manufacturers
+    background-color: rgb(146, 235, 78)
     &_content
         min-height: 270px
-        background-color: #fdf9f9
-        padding: 50px 20px
+        margin: 0 20px
     
     &_item
         border: 1px solid rgba(129,129,129,1)
@@ -213,7 +177,7 @@ $hover-color: rgb(126, 182, 83)
             margin-top: 10px
             text-align: center
             color: green
-            font-size: 25px
+            font-size: 23px
             font-weight: 600
             opacity: 0.8
             
@@ -230,11 +194,10 @@ $hover-color: rgb(126, 182, 83)
                 opacity: 1
     
 .wholesale
-    
+    background-color: rgb(146, 235, 78)
     &_content
         min-height: 410px
-        background-color: #fff
-        padding: 80px 50px
+        padding: 50px 50px
     &_text
         display: inline-block
         width: 100%
@@ -242,7 +205,137 @@ $hover-color: rgb(126, 182, 83)
             text-align: end
             color: #000000
             font-family: "Montserrat", Sans-serif
-            font-size: 20px
+            font-size: 25px
             font-weight: 600
             font-style: italic
-
+@media ( max-width:  991px)
+    .slider        
+        .carousel
+            &-caption
+                p
+                    font-size: 28px
+            &-item
+                height: 450px
+                img
+                    height: 450px
+    .company
+        &_content
+            padding: 40px 10px
+    .title
+        h2
+            font-size: 30px
+    .descr
+        &_element
+                font-size: 20px
+                padding-bottom: 10px
+        &_text
+            &_last
+                font-size: 25px
+    .wholesale
+        &_content
+            padding: 40px 10px
+        &_text
+            &_last
+                font-size: 22px
+    .manufacturers
+        &_content
+            padding: 15px 0
+@media ( max-width:  767px)
+    .slider
+        &_content           
+        .carousel
+            &-caption
+                h5
+                    font-size: 35px
+                p
+                    font-size: 21px
+            &-item
+                height: 350px
+                img
+                    height: 350px
+    .company
+        &_content
+            padding: 20px 10px
+    .title
+        h2
+            font-size: 30px
+    .descr
+        &_text
+            font-size: 20px
+        &_element
+                font-size: 20px
+                padding-bottom: 10px
+        
+    .wholesale
+        &_content
+            padding: 20px 10px
+        &_text
+            &_last
+                font-size: 25px
+    .manufacturers
+        &_content
+            padding: 15px 0
+@media ( max-width:  575px)
+    .slider
+        &_content           
+        .carousel
+            &-caption
+                h5
+                    font-size: 25px
+                p
+                    font-size: 17px
+                &-btn
+                    font-size: 15px
+                    font-weight: 600
+                    width: 170px
+                    height: 38px
+            &-item
+                height: 300px
+                img
+                    height: 300px
+    .company
+        &_content
+            padding: 30px 0
+    .title
+        h2
+            font-size: 20px
+    .descr
+        &_text
+            font-size: 13px
+        &_element
+                
+                padding-bottom: 0
+        
+    .wholesale
+        &_content
+            padding: 30px 0
+        &_text
+            &_last
+                font-size: 17px
+    .manufacturers
+        &_content
+            padding: 15px 0
+@media ( max-width:  400px)
+    .slider
+        &_content           
+        .carousel
+            &-caption
+                h5
+                    font-size: 20px
+                p
+                    font-size: 13px
+                &-btn
+                    font-size: 15px
+                    font-weight: 600
+                    width: 170px
+                    height: 38px
+            &-indicators
+                li
+                    border-radius: 100%
+                    width: 15px
+                    height: 15px
+                    margin: 0 5px
+            &-item
+                height: 250px
+                img
+                    height: 250px

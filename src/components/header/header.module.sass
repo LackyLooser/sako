@@ -2,20 +2,21 @@ $main-color: rgb(133, 197, 85)
 $hover-color: rgb(126, 182, 83)
 .header
     background: url('../../img/bg/header.jpg') center (center / cover) no-repeat
-    height: 200px
-    position: relative
+    width: 100%
+    &_content
+        display: flex
     &_search
         display: flex
         justify-content: center
         align-items: center
-        width: 80%
-        height: 100%
-        padding: 0 15px
+        width: calc(100% - 130px)
+        height: 150px
+        padding-left: 15px
         &_container
             position: relative
-            width: 100%
+            width: 300px
         &_input
-            width: 100%
+            width: calc(100% - 46px)
             height: 46px
             font-size: 15px
             border: 2px solid rgba(129,129,129,.2)
@@ -42,203 +43,181 @@ $hover-color: rgb(126, 182, 83)
                     color: #fff
                     font-size: 20px
     &_phone
-        width: 100%
+        width: calc(100% - 130px)
         height: 150px
         display: flex
-        justify-content: end
+        justify-content: center
         align-items: center
         font-size: 22px
         font-weight: 600
         color: #fff
         line-height: 1.3
-        padding: 0 15px
         &_content
             text-align: right
+            max-width: 400px
+            padding-right: 15px
             span
                 display: inline-block
                 a
-                    margin-left: 20px
+                    // margin-left: 20px
                     text-decoration: none
                     color: #fff
     &_logo
-        width: 100%
+        width: 260px
         height: 150px
         display: flex
-        padding: 0 15px
-        padding: 0 15px
-        img
+        align-items: center
+        &_img
             width: 100%
-.nav
-    position: absolute
-    bottom: 0
-    height: 50px
-    width: 100%
-    background-color: rgba(62,100 , 21, .5)
-    display: flex
-    justify-content: center
-    align-items: center
-    &_menu
-        width: 50%
-        display: flex
-        justify-content: space-between
-        padding: 0 20px
-        margin: 0 auto
-        list-style-type: none
-        &_item
+            height: 100%
             display: flex
-            height: 50px
-            align-items: center
-            padding: 0 10px
-        &_link
-            color: #ffffff
-            font-size: 20px
-            font-weight: 500
-            &:hover
-                text-decoration: none
-                color: #ffffff
-@media ( max-width: 1135px )
-    .nav
-        &_menu
-            width: 60%
-@media ( max-width: 1001px )
+            justify-content: center
+            img
+                display: block
+                width: auto
+                height: auto
+@media ( max-width: 992px )
     .header
-        height: 170px
+        &_content
+        &_search
+            &_container
+                width: 250px
         &_phone
-            height: 120px
-            font-size: 17px
+            font-size: 18px
+@media ( max-width: 900px )
+    .header
+        &_content
+        &_search
+            &_container
+                width: 200px
+        &_phone
+            font-size: 16px
+@media ( max-width: 768px )
+    .header
+        background: url('../../img/bg/header_768.jpg') center (center / cover) no-repeat
+        &_content
+            flex-direction: column-reverse
+            align-items: center
+        &_search
+            height: 100%
+            margin-bottom: 15px
+            &_container
+                width: 300px
+        &_phone
+            max-height: 100px
+            font-size: 20px
+            margin-top: 15px
             line-height: 1.2
             &_content
-                span
-                    a
-                        margin-left: 13px
-        &_logo
-            height: 120px
-            padding: 0 10px
-    .nav
-        &_menu
-            &_link
-                font-size: 17px
-@media ( max-width: 844px )
+                text-align: center
+@media ( max-width: 450px )
     .header
+        &_content
+        &_search
+            &_container
+                width: 100%
+        &_phone
+            font-size: 16px
+            margin-top: 0
+@media ( max-width: 400px )
+    .header
+        &_content
         &_search
             width: 100%
-            &_input
-                height: 41px
-                font-size: 15px
-                &_btn
-                    width: 41px
-                    height: 41px
-    .nav
-        height: 40px
-        &_menu
-            width: 70%
-@media ( max-width: 797px )
-    .header
-        height: 150px
+            padding: 0 40px
+            &_container
+                width: 100%
         &_phone
-            height: 100px
-            font-size: 14px
-            line-height: 1.2
-        &_logo
-            height: 100px
-        &_search
-            &_input
-                height: 35px
-                font-size: 15px
-                padding-left: 5px
-                &_btn
-                    width: 35px
-                    height: 35px
-    .nav
-        height: 35px
-        &_menu
-            width: 80%
-@media ( max-width: 676px )
-    .header
-        height: 130px
-        &_phone
-            height: 100px
-            font-size: 11px
-            line-height: 1.2
-        &_logo
-            height: 100px
-        &_search
-            &_input
-                height: 30px
-                padding-left: 5px
-                &_btn
-                    width: 30px
-                    height: 30px
-    .nav
-        height: 35px
-        &_menu
-            width: 90%
-    
-@media ( max-width: 576px )
-    .header
-        height: 80px
-        &_search
-            height: 50px
-            &_input
-                height: 30px
-                font-size: 8px
-                padding-left: 2px
-                &_btn
-                    width: 30px
-                    height: 30px
-                    font-weight: 300
-                    i
-                        font-size: 15px
-        &_phone
-            height: 50px
-            font-size: 9px
-            font-weight: 400
-            line-height: 1
-            padding: 0 5px
-        &_logo
-            height: 50px
+            width: 100%
+            font-size: 16px
             padding: 0 15px
-    .nav
-        height: 30px
-        &_menu
-            width: 100%
-            padding: 0 10px
-            &_item
-                height: 30px
-                padding: 0 5px
-            &_link
-                font-size: 13px
-                font-weight: 400
-@media ( max-width: 417px )
-    .header
-        height: 80px
-        &_search
-            height: 60px
-            padding-right: 0px
-            &_input
-                height: 30px
-                font-size: 7px
-                padding-left: 0px
-                &_btn
-                    width: 23px
-                    height: 30px
-                    font-weight: 300
-                    i
-                        font-size: 15px
-        &_phone
-            height: 60px
-            font-size: 7px
-            font-weight: 300
-            line-height: 1
-        &_logo
-            height: 60px
-    .nav
-        height: 20px
-        &_menu
-            padding: 0 5px
-            &_item
-                height: 20px
-                padding: 0 5px
-            &_link
-                font-size: 10px
-                font-weight: 300
+// @media ( max-width: 991px )
+//     .header
+//         &_search
+//             width: 100%
+//             &_input
+//                 height: 41px
+//                 font-size: 15px
+//                 &_btn
+//                     width: 41px
+//                     height: 41px
+// @media ( max-width: 797px )
+//     .header
+//         height: 115px
+//         &_phone
+//             height: 100px
+//             font-size: 14px
+//             line-height: 1.2
+//         &_logo
+//             height: 100px
+//         &_search
+//             &_input
+//                 height: 35px
+//                 font-size: 15px
+//                 padding-left: 5px
+//                 &_btn
+//                     width: 35px
+//                     height: 35px
+// @media ( max-width: 676px )
+//     .header
+//         height: 95px
+//         &_phone
+//             height: 100px
+//             font-size: 11px
+//             line-height: 1.2
+//         &_logo
+//             height: 100px
+//         &_search
+//             &_input
+//                 height: 30px
+//                 padding-left: 5px
+//                 &_btn
+//                     width: 30px
+//                     height: 30px
+    
+// @media ( max-width: 576px )
+//     .header
+//         height: 50px
+//         &_search
+//             height: 50px
+//             &_input
+//                 height: 30px
+//                 font-size: 8px
+//                 padding-left: 2px
+//                 &_btn
+//                     width: 30px
+//                     height: 30px
+//                     font-weight: 300
+//                     i
+//                         font-size: 15px
+//         &_phone
+//             height: 50px
+//             font-size: 9px
+//             font-weight: 400
+//             line-height: 1
+//             padding: 0 5px
+//         &_logo
+//             height: 50px
+//             padding: 0 15px
+// @media ( max-width: 417px )
+//     .header
+//         &_search
+//             height: 60px
+//             padding-right: 0px
+//             &_input
+//                 height: 30px
+//                 font-size: 7px
+//                 padding-left: 0px
+//                 &_btn
+//                     width: 23px
+//                     height: 30px
+//                     font-weight: 300
+//                     i
+//                         font-size: 15px
+//         &_phone
+//             height: 60px
+//             font-size: 7px
+//             font-weight: 300
+//             line-height: 1
+//         &_logo
+//             height: 60px

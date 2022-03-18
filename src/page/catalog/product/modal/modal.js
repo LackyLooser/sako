@@ -20,11 +20,19 @@ const Modal = ({ active, modalFlag, state}) => {
         speed: 0,
         prevArrow: <Prev />,
         nextArrow: <Next />,
+        responsive: [
+            {
+              breakpoint: 700,
+              settings: {
+                arrows:false
+              }
+            }
+          ]
     };
     return (
         <>
             {state && <div className={active ? 'modal_element active' : 'modal_element'} onClick={() => modalFlag(false)}>
-
+                <div className="modal_close">&times;</div>
                 <div className='modal_content' onClick={e => e.stopPropagation()}>
                     {state && state.length <= 1 && <img src={state} />}
                     {state && state.length > 1 && <Slider {...settings}>

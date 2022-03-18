@@ -16,7 +16,7 @@ const Next=(props) =>{
         <span onClick={onClick} type="button" className="slick-next"><i className="fas fa-chevron-right"></i></span>
     )
 }
-const SliderItem = ({bg,title,apiUrl, options}) => {
+const SliderItem = ({bg,title,apiUrl, options,id}) => {
     const [{response ,error, isLoading}, doFetch] = useFetch(apiUrl)
     let slideShow = response && response.length < 4 ? response.length : 4
     
@@ -64,7 +64,7 @@ const SliderItem = ({bg,title,apiUrl, options}) => {
         })
       },[])
     return (
-        <div className={bg}>
+        <div id={id} className={bg}>
             <div className='container'>
                 <div className="bestseller_title">
                     <h2>{title}</h2>
@@ -81,9 +81,9 @@ const SliderItem = ({bg,title,apiUrl, options}) => {
                                     <NavLink to={`/catalog/product/${el.id}`} className="item_name">
                                          {el.name}
                                     </NavLink>
-                                    <a href="#" className="item_manufacturer">
-                                        Фаско
-                                    </a>
+                                    <NavLink to={`/catalog/manufactures/${el.manufactor.id}`} className="item_manufacturer">
+                                    {el.manufactor.name}
+                                    </NavLink>
                                 </div>
                             </div>
                         )

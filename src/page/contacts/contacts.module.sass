@@ -1,8 +1,10 @@
 $main-color: rgb(133, 197, 85)
 $hover-color: rgb(126, 182, 83)
 .contacts
+    background-color: rgb(146, 235, 78)
+    padding: 40px 0
     &_content
-        margin: 40px 0
+        padding: 40px 0
         padding: 0 70px
         .title
             display: flex
@@ -34,4 +36,16 @@ $hover-color: rgb(126, 182, 83)
                 &:last-child
                     border-bottom:  none
                 a
-                    color: #83b735
+                    color: #000
+@media ( max-width:  575px)
+    .contacts
+        &_content
+            padding: 0 10px
+@media ( max-width: 400px)
+    .contacts
+        &_content
+        &_element
+            .company
+                &_item
+                    font-size: 15px
+                    line-height: 1.7

@@ -71,18 +71,21 @@ const Home = () => {
             </div>
             <section className="partners">
                 <div className="container">
+                <div className="title big">
+                        <h2>Наши партнеры</h2>
+                    </div>
                     <div className="row">
                         {loadingPartners && <Preloader />}
                         {!loadingPartners && partnersResponse && partnersResponse.map(el => {
                             return (
-                                <a href={el.url} className="col-lg-3 col-md-4 col-sm-6 pr-0 pl-0" key={el.id} target="_blank">
+                                <div className="col-lg-3 col-md-4 col-sm-4 col-6 pr-0 pl-0" key={el.id}>
                                     <div className="partners_square">
                                         <div className="partners_content">
                                             <img src={el.logo} className="partners_hidden" />
                                             <span className="partners_company">{el.name}</span>
                                         </div>
                                     </div>
-                                </a>
+                                </div>
                             )
                         })}
 
@@ -92,7 +95,8 @@ const Home = () => {
 
                 </div>
             </section>
-            <SliderItem bg={"bestseller bestseller_new"} title={"Новинки"} apiUrl={'product/'} options={{ new: true }} />
+            <SliderItem id={"new"} bg={"bestseller bestseller_new"} title={"Новинки"} apiUrl={'product/'} options={{ new: true }} />
+            <div className="company">
             <div className="container">
                 <div className="company_content">
                     <div className="title">
@@ -139,13 +143,15 @@ const Home = () => {
                     </div>
                     <div className="descr_element">
                         <div className="descr_container">
-                            <div className="descr_text_last">Купить товары для сада и огорода
+                            <div className="wholesale_text_last">Купить товары для сада и огорода <br/>
                                 быстро и выгодно – OOO“БелУрожай”</div>
                         </div>
                     </div>
                 </div>
             </div>
-            <SliderItem bg={"bestseller bestseller_hit"} title={"Хит продаж"} apiUrl={'product/'} options={{ bestseller: true }} />
+            </div>
+            
+            <SliderItem id={'best'} bg={"bestseller bestseller_hit"} title={"Хит продаж"} apiUrl={'product/'} options={{ bestseller: true }} />
             <section className="wholesale">
                 <div className="container">
                     <div className="wholesale_content">
@@ -154,12 +160,14 @@ const Home = () => {
                         </div>
                         <div className="wholesale_container">
                             <div className="row">
-                                <div className="col-lg-8">
+                                <div className="col-lg-12">
                                     <div className="descr_element">
                                         <div className="descr_container">
                                             <div className="descr_text">
-                                                <p>Наша компания будет рада сотрудничеству с региональными <br /> дилерами и
-                                                    сельскохозяйственными мануфактурами.</p>
+                                                <p>Наша компания будет рада сотрудничеству с региональными дилерами и
+                                                    сельскохозяйственными мануфактурами.Наша компания будет рада сотрудничеству с региональными дилерами и
+                                                    сельскохозяйственными мануфактурамиНаша компания будет рада сотрудничеству с региональными дилерами и
+                                                    сельскохозяйственными мануфактурами</p>
                                             </div>
                                         </div>
                                     </div>
@@ -204,7 +212,7 @@ const Home = () => {
                             {loadingManufact && <Preloader />}
                             {!loadingManufact && manufactResponse && manufactResponse.map(el => {
                                 return (
-                                    <div className="col-lg-3 col-md-4 col-sm-6 col-12" key={el.id}>
+                                    <div className="col-lg-3 col-md-4 col-sm-6 col-12 pr-1 pl-1" key={el.id}>
                                         <NavLink to={`/catalog/manufactures/${el.id}`}>
                                         <div className="manufacturers_item">
                                             <div className="manufacturers_item_link" href="#">

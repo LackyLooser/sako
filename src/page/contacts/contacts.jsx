@@ -16,7 +16,7 @@ const Contacts = () => {
                         <h2>Контакты</h2>
                     </div>
                     <div className="row">
-                        <div className="col-md-6">
+                        <div className="col-lg-6 col-md-8 col-12">
                             <div className={styles.contacts_container}>
                                 <div className={styles.contacts_element}>
                                     <div className={styles.company_title}>
@@ -36,7 +36,7 @@ const Contacts = () => {
                                         {isLoading && !response && <Preloader/>}
                                         {!isLoading && response && response.map(el => {
                                             return (
-                                                <div className={styles.company_item}>
+                                                <div className={styles.company_item} key={el.id}>
                                                     <strong>Адрес</strong>
                                                     <br />
                                                     {el.address}

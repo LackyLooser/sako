@@ -14,7 +14,10 @@ const ProductList = ({state,url}) => {
                 <li className={styles.products_element} >
                     <img className={styles.products_element_img} src={el.main_logo} />
                     <span className={styles.products_element_name}>{el.name}</span>
-                    <span className={styles.products_element_manufacturers}>Фаско</span>
+                    <NavLink to={`/catalog/manufactures/${el.manufactor.id}`}><span className={styles.products_element_manufacturers}>
+                        {el.manufactor.name}
+                        </span></NavLink>
+                    
                 </li>
             </NavLink>
                 

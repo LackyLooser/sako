@@ -1,0 +1,79 @@
+.nav
+    background: url('../../img/bg/nav.jpg') center (center / cover) no-repeat
+    position: sticky
+    top: -1px
+    height: 50px
+    width: 100%
+    
+    background-color: rgba(62,100 , 21, .5)
+    display: flex
+    justify-content: center
+    align-items: center
+    z-index: 300
+    &_menu
+        width: 50%
+        display: flex
+        justify-content: space-between
+        padding: 0 20px
+        margin: 0 auto
+        list-style-type: none
+        &_item
+            display: flex
+            height: 50px
+            align-items: center
+            padding: 0 10px
+        &_link
+            color: #ffffff
+            font-size: 20px
+            font-weight: 500
+            &:hover
+                text-decoration: none
+                color: #ffffff
+@media ( max-width: 1135px )
+    .nav
+        &_menu
+            width: 60%
+@media ( max-width: 1001px )
+    .nav
+        &_menu
+            &_link
+                font-size: 17px
+@media ( max-width: 844px )
+    .nav
+        height: 40px
+        &_menu
+            width: 70%
+@media ( max-width: 797px )
+    .nav
+        height: 35px
+        &_menu
+            width: 80%
+@media ( max-width: 676px )
+    .nav
+        height: 35px
+        &_menu
+            width: 90%
+    
+@media ( max-width: 576px )
+    .nav
+        height: 30px
+        &_menu
+            width: 100%
+            padding: 0 10px
+            &_item
+                height: 30px
+                padding: 0 5px
+            &_link
+                font-size: 13px
+                font-weight: 400
+@media ( max-width: 417px )
+    .nav
+        height: 20px
+        &_menu
+            padding: 0 5px
+            &_item
+                height: 20px
+                padding: 0 5px
+            &_link
+                font-size: 10px
+                font-weight: 300
