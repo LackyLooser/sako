@@ -31,13 +31,14 @@ const Header = () => {
                             <div className={styles.header_phone}>
                                 <div className={styles.header_phone_content}>
                                     <span>
-                                        Тел./факс 8-017-356-98-03
+                                        <a href="tel:+375173569803">Тел./факс 8-017-356-98-03</a>
                                     </span>
                                     <span>
-                                        моб. 8-029-688-40-44
+                                        <a href="tel:+375296884044">моб. 8-029-688-40-44</a>
                                     </span>
                                     <span>
-                                        моб. 8-029-688-40-48
+                                        <a href="tel:+375296884048">моб. 8-029-688-40-48</a>
+                                        
                                     </span>
                                     <span>
                                         Email:

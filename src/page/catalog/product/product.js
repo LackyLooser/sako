@@ -50,7 +50,7 @@ const Product = (props) => {
      }
      
     return (
-        <>
+        <div className={styles.product}>
         <div className='container'>
             {isLoading && <Preloader/>}
             {error && !isLoading && <div style={{'minHeight':"300px","textAlign":"center","paddingTop": "50px", "fontSize": "40px"}}>
@@ -86,7 +86,7 @@ const Product = (props) => {
             </div>}
         </div>
         {modalActive && stateSlider && <Modal active={modalActive} modalFlag={modalFlag} state={stateSlider}/>}
-        </>
+        </div>
         
     )
 }

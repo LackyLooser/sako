@@ -1,16 +1,18 @@
 import React, { useEffect, useState} from 'react'
-import {NavLink, useLocation} from "react-router-dom";
+import {NavLink, useNavigate} from "react-router-dom";
 import styles from './productList.module.sass'
 const ProductList = ({state,url}) => {
     const [stateProduct, setStateProduct] = useState('')
+    const navigate = useNavigate()
     useEffect(()=>{
         setStateProduct(state)
     },[state])
+    const clickProduct = (id)=> navigate(`/catalog/product/${id}`)
     return (
         <div>
             <ul className={styles.products_container}>
             {stateProduct && stateProduct.map((el) =>
-            <NavLink className={styles.navlink} to={`/catalog/product/${el.id}`} key={el.id}>
+            <div className={styles.navlink} onClick={()=> clickProduct(el.id)} key={el.id}>
                 <li className={styles.products_element} >
                     <img className={styles.products_element_img} src={el.main_logo} />
                     <span className={styles.products_element_name}>{el.name}</span>
@@ -19,7 +21,7 @@ const ProductList = ({state,url}) => {
                         </span></NavLink>
                     
                 </li>
-            </NavLink>
+            </div>
                 
              )}
             

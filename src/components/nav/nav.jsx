@@ -13,8 +13,9 @@ const Nav = () => {
         }
       });     
     });
-    return (
+    return (    
                 <nav className={styles.nav}>
+                    <div className={styles.nav_bg}>
                     <ul className={styles.nav_menu}>
                         <li className={styles.nav_menu_item}>
                             <NavLink to="/" className={styles.nav_menu_link}>
@@ -43,7 +44,7 @@ const Nav = () => {
                             </a>
                         </li>
                     </ul>
-                    
+                    </div>
                 </nav>
     )
 }

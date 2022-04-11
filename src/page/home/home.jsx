@@ -12,8 +12,8 @@ const Home = () => {
     const [{ response: partnersResponse, isLoading: loadingPartners }, doFetchPartners] = useFetch(`partner/`)
     const [{ response: manufactResponse, isLoading: loadingManufact }, doFetchManufact] = useFetch('manufactor/')
     useEffect(() => {
-        doFetchPartners()
-        doFetchManufact()
+            doFetchPartners()
+            doFetchManufact()
     }, [])
     return (
         <>
@@ -39,22 +39,19 @@ const Home = () => {
                             <div className="carousel-item">
                                 <img src={fl2} className="d-block w-100" alt="..." />
                                 <div className="carousel-caption d-block">
-                                    <h5>Second slide label</h5>
-                                    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
+                                    <h5>Семена от ведущих  производителей <br/> России, Италии и Польши</h5>
                                 </div>
                             </div>
                             <div className="carousel-item">
                                 <img src={fl3} className="d-block w-100" alt="..." />
                                 <div className="carousel-caption d-block">
-                                    <h5>Third slide label</h5>
-                                    <p>Praesent commodo cursus magna, vel scelerisque nisl consectetur.</p>
+                                    <h5>Все для успешного роста и развития на Вашем участке</h5>
                                 </div>
                             </div>
                             <div className="carousel-item">
                                 <img src={fl4} className="d-block w-100" alt="..." />
                                 <div className="carousel-caption d-block">
-                                    <h5>Third slide label</h5>
-                                    <p>Praesent commodo cursus magna, vel scelerisque nisl consectetur.</p>
+                                    <h5>Ваш урожай - наша забота!</h5>
                                 </div>
                             </div>
                         </div>
@@ -69,13 +66,14 @@ const Home = () => {
                     </div>
                 </div>
             </div>
-            <section className="partners">
+            {loadingPartners && <Preloader />}
+            {!loadingPartners && partnersResponse && partnersResponse.length > 0 && <section className="partners">
                 <div className="container">
-                <div className="title big">
+                    <div className="title big">
                         <h2>Наши партнеры</h2>
                     </div>
                     <div className="row">
-                        {loadingPartners && <Preloader />}
+                        
                         {!loadingPartners && partnersResponse && partnersResponse.map(el => {
                             return (
                                 <div className="col-lg-3 col-md-4 col-sm-4 col-6 pr-0 pl-0" key={el.id}>
@@ -94,69 +92,47 @@ const Home = () => {
                     </div>
 
                 </div>
-            </section>
+            </section>}
             <SliderItem id={"new"} bg={"bestseller bestseller_new"} title={"Новинки"} apiUrl={'product/'} options={{ new: true }} />
             <div className="company">
-            <div className="container">
-                <div className="company_content">
-                    <div className="title">
-                        <h2>Всё для сада и огорода |
-                            OOO“БелУрожай” Могилёв</h2>
-                    </div>
-                    <div className="descr_element">
-                        <div className="descr_container">
-                            <div className="descr_text">
-                                <p className="descr_text">— Вы не представляете свою жизнь без цветов на клумбах и свежих овощей
-                                    с грядки?<br />—
-                                    Вкус только что собранных ягод для Вас никогда не заменят магазинные “безвкусные”
-                                    плоды?<br />— Ваш сад или дачный участок, приносящий хорошее настроение даже после
-                                    трудного рабочего дня, – неотъемлемая часть Вашей жизни?</p>
+                <div className="container">
+                    <div className="company_content">
+                        <div className="title">
+                            <h2>С НАМИ НАДЁЖНО, УДОБНО И ВЫГОДНО РАБОТАТЬ!</h2>
+                        </div>
+                        <div className="descr_element">
+                            <div className="descr_container">
+                                <div className="descr_text">
+                                    <p className="indent">ООО «Сако ГРИН» - динамично развивающаяся компания в сфере оптовых продаж: семян овощных и цветочных культур, удобрений, средств защиты растений от вредителей, болезней и сорняков, микроудобрений и препаратов от грыз, бытовой химией и садовым инвентарем.</p>
+                                </div>
                             </div>
                         </div>
-                    </div>
-                    <div className="descr_element">
-                        <div className="descr_container">
-                            <div className="descr_text">
-                                <p>Если Вы ответили “Да” на эти вопросы, значит, нам есть что Вам предложить.<br />Каталог
-                                    товаров компании “<strong>БелУрожай</strong>” – это огромный ассортимент
-                                    агротоваров, начиная от семян и заканчивая садовым инвентарем.<br />На страницах
-                                    нашего сайта Вы найдете всё для сада и огорода, ознакомитесь с характеристикой
-                                    товарных позиций, которые Вы можете приобрести, находясь в любой точке Беларуси у
-                                    нас.<br />Только сертифицированная качественная продукция и индивидуальный подход к
-                                    каждому клиенту.</p>
+                        <div className="descr_element">
+                            <div className="descr_container">
+                                <div className="descr_text preim">
+                                    <p><strong>Наши преимущества:</strong><br/>
+                                        индивидуальный подход к клиенту<br/>
+                                        конкурентоспособные цены<br/>
+                                        профессиональная команда<br/>
+                                        система скидок<br/>
+                                        доставка товара в любой регион нашей страны<br/>
+                                        работаем с возвратами продукции<br/>
+                                        прямые договоры с заводами<br/>
+                                        заводское качество, пакет документации<br/>
+                                    </p>
+                                </div>
                             </div>
-                        </div>
-                    </div>
-                    <div className="descr_element">
-                        <div className="descr_container">
-                            <div className="descr_text">
-                                <p>Компания “<strong>БелУрожай</strong>” является первым импортером в Республику
-                                    Беларусь товаров известных российских поставщиков, таких как “<strong>Семена
-                                        Алтая</strong>”, “<strong>БиоМастер</strong>”, “<strong>Ваше
-                                            Хозяйство</strong>”, “<strong>Органик Лайн</strong>”,
-                                    “<strong>Ивановское</strong>”.<br />Мы занимаемся продажей&nbsp;<strong>агротоваров
-                                        оптом</strong>. Всё для сада и огорода по лучшим ценам на рынке РБ – осталось
-                                    только выбрать интересующий Вас товар.<br />Для более удобной навигации по каталогу Вы
-                                    можете воспользоваться поиском вверху сайта.</p>
-                            </div>
-                        </div>
-                    </div>
-                    <div className="descr_element">
-                        <div className="descr_container">
-                            <div className="wholesale_text_last">Купить товары для сада и огорода <br/>
-                                быстро и выгодно – OOO“БелУрожай”</div>
                         </div>
                     </div>
                 </div>
             </div>
-            </div>
-            
+
             <SliderItem id={'best'} bg={"bestseller bestseller_hit"} title={"Хит продаж"} apiUrl={'product/'} options={{ bestseller: true }} />
             <section className="wholesale">
                 <div className="container">
                     <div className="wholesale_content">
                         <div className="title">
-                            <h2>Купить товары для сада и огорода в РБ оптом</h2>
+                            <h2>Мы работаем с любыми клиентами, на различных условиях.</h2>
                         </div>
                         <div className="wholesale_container">
                             <div className="row">
@@ -164,18 +140,39 @@ const Home = () => {
                                     <div className="descr_element">
                                         <div className="descr_container">
                                             <div className="descr_text">
-                                                <p>Наша компания будет рада сотрудничеству с региональными дилерами и
-                                                    сельскохозяйственными мануфактурами.Наша компания будет рада сотрудничеству с региональными дилерами и
-                                                    сельскохозяйственными мануфактурамиНаша компания будет рада сотрудничеству с региональными дилерами и
-                                                    сельскохозяйственными мануфактурами</p>
+                                            <p className="indent">
+                                                Скидка и отсрочка платежа за приобретённый товар обговариваются с потребителем и прописываются, в дальнейшем, в договоре.
+                                                </p>
+                                                
                                             </div>
                                         </div>
                                     </div>
                                     <div className="descr_element">
                                         <div className="descr_container">
                                             <div className="descr_text">
-                                                <p>Купить товары “Всё для сада и огорода”, качественные товары, цены первого
-                                                    поставщика – то, что выделяет компанию “БелУрожай” среди конкурентов.
+                                            <p className="indent">Договор и <span className="under">прайсы</span>, для дальнейшей работы и оптовых приобретений товара, Вам можем выслать на электронный адрес, вайбер, телеграмм или нарочно.</p>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div className="descr_element">
+                                        <div className="descr_container">
+                                            <div className="descr_text">
+                                                <p><strong>При заказе:</strong></p>
+                                                <p className="indent">
+                                                – от 300 бел. рублей и оплате в течении 3 календарных дней предоставляется скидка 5%.</p>
+                                                <p className="indent">– от 800 бел. рублей и оплате в течении 3 календарных дней предоставляется скидка 7%.</p>
+                                                <p className="indent">– от 1500 бел. рублей и оплате в течении 3 календарных дней предоставляется скидка 9%.</p>
+                                                <p className="indent">– от 3000 бел. рублей и оплате в течении 3 календарных дней предоставляется скидка 12%.</p>
+                                                
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div className="descr_element">
+                                        <div className="descr_container">
+                                            <div className="descr_text">
+                                                <p><strong>Гарантии:</strong></p>
+                                                <p className="indent">
+                                                Возможен возврат или обмен не проданного товара, а также операции по взаимозачету.<br/>
                                                 </p>
                                             </div>
                                         </div>
@@ -183,16 +180,11 @@ const Home = () => {
                                     <div className="descr_element">
                                         <div className="descr_container">
                                             <div className="descr_text">
-                                                <p>Оставить заявку о сотрудничестве можно, воспользовавшись формой обратной
-                                                    связи либо позвонив по указанным на сайте телефонам.</p>
+                                                <p><strong>Доставка:</strong></p>
+                                                <p className="indent">Доставка продукции в любую точку РБ осуществляется за счет нашего предприятия. <br/>
+                                                Заказы выполняются в кратчайшие сроки.
+                                                </p>
                                             </div>
-                                        </div>
-                                    </div>
-
-                                    <div className="descr_element">
-                                        <div className="descr_container">
-                                            <div className="wholesale_text_last">Продукция “Всё для сада и огорода” в РБ от
-                                                компании “БелУрожай” – выбор заботливого хозяина.</div>
                                         </div>
                                     </div>
                                 </div>
@@ -214,17 +206,17 @@ const Home = () => {
                                 return (
                                     <div className="col-lg-3 col-md-4 col-sm-6 col-12 pr-1 pl-1" key={el.id}>
                                         <NavLink to={`/catalog/manufactures/${el.id}`}>
-                                        <div className="manufacturers_item">
-                                            <div className="manufacturers_item_link" href="#">
-                                                <img src={el.logo} alt="logo" />
+                                            <div className="manufacturers_item">
+                                                <div className="manufacturers_item_link" href="#">
+                                                    <img src={el.logo} alt="logo" />
+                                                </div>
+                                                <div className="manufacturers_item_company">
+                                                    {el.name}
+                                                </div>
+                                                <div className="manufacturers_item_production">
+                                                    Продукция
+                                                </div>
                                             </div>
-                                            <div className="manufacturers_item_company">
-                                                {el.name}
-                                            </div>
-                                            <div className="manufacturers_item_production">
-                                                Продукция
-                                            </div>
-                                        </div>
                                         </NavLink>
                                     </div>
                                 )

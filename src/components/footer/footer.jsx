@@ -28,15 +28,9 @@ const Footer = () => {
                         <div className="col-lg-4 col-md-4 col-sm-4 col-12 pl-0 pr-0">
                             <div className={styles.footer_middle}>
                                 <div className={styles.footer_middle_phone}>
-                                    <div>
-                                        8-017-356-98-03
-                                    </div>
-                                    <div>
-                                        8-029-688-40-44
-                                    </div>
-                                    <div>
-                                        8-029-688-40-48
-                                    </div>
+                                    <a href="tel:+375173569803">Тел./факс 8-017-356-98-03</a>
+                                    <a href="tel:+375296884044">моб. 8-029-688-40-44</a>
+                                    <a href="tel:+375296884048">моб. 8-029-688-40-48</a>
                                 </div>
                                 <div className={styles.footer_middle_address}>
                                     <div>

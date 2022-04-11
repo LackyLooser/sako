@@ -1,7 +1,6 @@
 $main-color: rgb(133, 197, 85)
 $hover-color: rgb(126, 182, 83)
 .slider
-    // height: calc(100vh - 200px)
     &_content           
     .carousel
         &-indicators
@@ -48,7 +47,7 @@ $hover-color: rgb(126, 182, 83)
                 margin: 30px auto 0
                 text-align: center
 .partners
-    background-color: rgb(146, 235, 78)
+    background-color: rgb(218, 245, 197)
     padding: 30px 0
     &_hidden
         display: block
@@ -113,14 +112,22 @@ $hover-color: rgb(126, 182, 83)
         display: inline-block
         width: 100%
         font-size: 23px
+        .indent
+            text-indent: 55px
+        p
+            text-align: justify
         &_last
             text-align: right
             color: #000000
             font-family: "Montserrat", Sans-serif
             font-size: 30px
             font-weight: 600
+.preim
+    margin-left: 55px
+.under
+    text-decoration: underline
 .company
-    background-color: rgb(146, 235, 78)
+    background-color: rgb(218, 245, 197)
     &_content
         padding: 50px
     &_container
@@ -154,13 +161,14 @@ $hover-color: rgb(126, 182, 83)
                     
 
 .manufacturers
-    background-color: rgb(146, 235, 78)
+    background-color: rgb(218, 245, 197)
     &_content
         min-height: 270px
         margin: 0 20px
     
     &_item
         border: 1px solid rgba(129,129,129,1)
+        background-color: rgb(234, 245, 229)
         margin: 10px 0
         cursor: pointer
         &_link
@@ -194,7 +202,7 @@ $hover-color: rgb(126, 182, 83)
                 opacity: 1
     
 .wholesale
-    background-color: rgb(146, 235, 78)
+    background-color: rgb(218, 245, 197)
     &_content
         min-height: 410px
         padding: 50px 50px
@@ -325,7 +333,6 @@ $hover-color: rgb(126, 182, 83)
                 p
                     font-size: 13px
                 &-btn
-                    font-size: 15px
                     font-weight: 600
                     width: 170px
                     height: 38px
